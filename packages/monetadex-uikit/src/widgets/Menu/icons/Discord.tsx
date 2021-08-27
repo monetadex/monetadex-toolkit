@@ -4,16 +4,23 @@ import { SvgProps } from "../../../components/Svg/types";
 
 const Icon: React.FC<SvgProps> = (props) => {
   return (
-    <Svg enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" {...props}>
-      <g fill="#5c6bc0">
-        <path d="m3.58 21.196h14.259l-.681-2.205c.101.088 5.842 5.009 5.842 5.009v-21.525c-.068-1.338-1.22-2.475-2.648-2.475l-16.767.003c-1.427 0-2.585 1.139-2.585 2.477v16.24c0 1.411 1.156 2.476 2.58 2.476zm10.548-15.513-.033.012.012-.012zm-7.631 1.269c1.833-1.334 3.532-1.27 3.532-1.27l.137.135c-2.243.535-3.26 1.537-3.26 1.537.104-.022 4.633-2.635 10.121.066 0 0-1.019-.937-3.124-1.537l.186-.183c.291.001 1.831.055 3.479 1.26 0 0 1.844 3.15 1.844 7.02-.061-.074-1.144 1.666-3.931 1.726 0 0-.472-.534-.808-1 1.63-.468 2.24-1.404 2.24-1.404-3.173 1.998-5.954 1.686-9.281.336-.031 0-.045-.014-.061-.03v-.006c-.016-.015-.03-.03-.061-.03h-.06c-.204-.134-.34-.2-.34-.2s.609.936 2.174 1.404c-.411.469-.818 1.002-.818 1.002-2.786-.066-3.802-1.806-3.802-1.806 0-3.876 1.833-7.02 1.833-7.02z" />
-        <path d="m14.308 12.771c.711 0 1.29-.6 1.29-1.34 0-.735-.576-1.335-1.29-1.335v.003c-.708 0-1.288.598-1.29 1.338 0 .734.579 1.334 1.29 1.334z" />
-        <path d="m9.69 12.771c.711 0 1.29-.6 1.29-1.34 0-.735-.575-1.335-1.286-1.335l-.004.003c-.711 0-1.29.598-1.29 1.338 0 .734.579 1.334 1.29 1.334z" />
-      </g>
+    <Svg
+      xmlns="http://www.w3.org/2000/svg"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+      preserveAspectRatio="xMidYMid"
+      width={24}
+      height={24}
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <image
+        xlinkHref="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAASCAMAAAB2Mu6sAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACBFBMVEUAAADOyt6xq86Yj72elsGdlcGXjryzrM3Nyd6yrM2LgbWUi7urpMmnoMeel8KTibqYj72VjLuhmcOmn8epociRh7mzrM7V0eSbkr9+c62elcGYj72DeLCWjbyelcF/dK6akb7U0OS3sNGEerF8cKt8cKuFerG2sNGRh7iNg7fBu9d5bam/utejm8TSzuKLgLWAda6Ada6JfrTRzeHCvth9cax8cKu1r9C8t9S0rc97b6p6bqqzrc+9uNSyq85+cqx7bqrBvNexqs2akb6PhriNg7aakb+vqMyfl8KelcGSibmQhriclMCelsKPhriBda/Ev9rAu9eAdK1/c63AutfGwduDd7CQh7iHfbOAda6KgLV+cq2Bda5/c62AdK5+c61+cqyAda5+c62HfLJ8cKuXjbyVjLx7b6t7cKuVjLuYjr18cauGfLLKxd6Ng7Z5baqYj72zrM2mnsaJf7SAda59cax7b6p6b6p8cayBdq6LgbWmnsaZkL6LgbbJxN3SzuKnn8aCd697cKumnsaxrc6zrs+Wj7+TjL20rtC4s9Knn8eDeLCpocjSzuPEwNmqo8mWjryAda6yq86yrM6Vjbyxq83JxNx4bKl2aad3aqh2aqh1aad5bKl6bqp5bal2aqd5bap0aKZ6bap1aaZ1aKd3aqd4a6h3a6h1aKZ0Z6ZyZaUAAACsNlgDAAAAl3RSTlMAA0qJenmNTQVcx69zZneSnpN3ZnSuXgKo8J6j4KSa7qoDVPD5+u5Vw8w3/jqNA9Hr6tYGJPn2UhBf+vthD1H0/S5Xp7W+oF+Nmaizk42z6Ss28PI4Keazze6+8uzk+vf4+uXU+Ley+Pi0tffVI8n8ql16w+X2/Pz35sR9qMwnCXrh+4wMGyUlGw2H4n0KDVGOtVxaj1MONvBxeAAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAFbSURBVBjTXZFVVwMxEIUHh2LF3V2Ku7u7U9zd3d212G5XskspLPArSZbCOXBfbua7mWROAkBkZGxiKi/AzNzCEn5lpbC2sbWzVyodHJ2cXRSuBuzm7uHp5U3RWppmWMrbx9fPP0AOAtmgYJrjDUJCSCgbJgfhNOL/iKMjSEtklMj/k0hF40D1TNY6Q9e3PasAYmIZ0o3iOMwQFY/IbdqEREhKJiAlNS09A6HMrOycXFLn5UOBgHewhfjMIoYpxlbCElAKZS/Y9eWYVAhCJbYqOaiGGi12qrYO6hsorrEJmlsoDF5boe2NF0X+rV3dgQGVq+6USC21QRcSu3sEnpPkQZHE8Uxvnw71w8C7ODg0PKKXEJmGk/SjY+MT/PskTE1/SDOzc/MLi0vLK6tr6xtzmzPaj61tgJ3dPeZz/wAOj45PTs/gPOOTvri8kl/x+uZWc/fzN/eah8cn7F8hianhUdqE9QAAAABJRU5ErkJggg=="
+        y={3}
+        width={24}
+        height={18}
+      />
     </Svg>
   );
 };
 
 export default Icon;
-
-

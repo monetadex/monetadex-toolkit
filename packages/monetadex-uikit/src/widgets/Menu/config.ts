@@ -157,16 +157,11 @@ export const socials = [
   {
     label: "Twitter",
     icon: "TwitterIcon",
-    href: "https://twitter.com/pancakeswap",
+    href: "https://twitter.com/moneta_dex",
   },
   {
     label: "Discord",
     icon: "DiscordIcon",
-    href: "https://twitter.com/pancakeswap",
-  },
-  {
-    label: "LinkedIn",
-    icon: "LinkedInIcon",
     href: "https://twitter.com/pancakeswap",
   },
   {
