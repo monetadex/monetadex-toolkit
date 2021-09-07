@@ -99,5 +99,8 @@ export { default as WalletConnectIcon } from "./Icons/WalletConnect";
 export { default as WalletIcon } from "./Icons/Wallet";
 export { default as WalletFilledIcon } from "./Icons/WalletFilled";
 export { default as WaitIcon } from "./Icons/Wait";
+export { default as BinanceSmartChainIcon } from "./Icons/BinanceSmartChain";
+export { default as EthereumIcon } from "./Icons/Ethereum";
+export { default as PolygonIcon } from "./Icons/Polygon";
 export { default as Svg } from "./Svg";
 export type { SvgProps } from "./types";

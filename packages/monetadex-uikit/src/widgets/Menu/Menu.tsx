@@ -60,6 +60,7 @@ const MobileOnlyOverlay = styled(Overlay)`
 `;
 
 const Menu: React.FC<NavProps> = ({
+  networkMenu,
   userMenu,
   globalMenu,
   isDark,
@@ -119,7 +120,7 @@ const Menu: React.FC<NavProps> = ({
           href={homeLink?.href ?? "/"}
         />
         <Flex>
-          {globalMenu} {userMenu}
+          {globalMenu} {networkMenu} {userMenu}
         </Flex>
       </StyledNav>
       <BodyWrapper>

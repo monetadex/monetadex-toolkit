@@ -20,3 +20,5 @@ export interface BoxProps
 export interface FlexProps extends BoxProps, FlexboxProps {}
 
 export interface GridProps extends FlexProps, _GridProps {}
+
+export interface ListProps extends FlexProps, _GridProps {}
