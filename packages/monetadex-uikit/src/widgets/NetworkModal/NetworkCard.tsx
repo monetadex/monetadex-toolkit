@@ -26,7 +26,7 @@ const NetworkButton = styled(Button).attrs({ width: "100%", variant: "text", py:
 export const MoreNetworkCard: React.FC<ButtonProps> = (props) => {
   return (
     <NetworkButton variant="tertiary" {...props}>
-      <MoreHorizontal width="40px" mb="8px" color="textSubtle" />
+      <MoreHorizontal width="30px" height="30px" mb="8px" color="textSubtle" />
       <Text fontSize="14px">More</Text>
     </NetworkButton>
   );

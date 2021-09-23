@@ -1,23 +1,25 @@
 import React from "react";
 import styled from 'styled-components';
 import Button from "../../../../components/Button/Button";
+import { Position } from "../../../../components/Dropdown/types";
 import Text from "../../../../components/Text/Text";
 import { networkLocalStorageKey, useNetworkModal } from '../../../NetworkModal';
 import config from "../../../NetworkModal/config";
 import { NetworkConfig } from "../../../NetworkModal/types";
 
-const NetworkButton = styled(Button).attrs({ width: "100%", variant: "text", py: "5px" })`
+const NetworkButton = styled(Button).attrs({ width: "100%", variant: "text", scale: "sm", mr: "8px" })`
   align-items: center;
   display: flex;
   flex-direction: row;
-  height: 30px;
+  height: 32px;
   width: 100px;
   justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 50px;
-  border: 1px solid red;
-  gap: 15px
+  padding-bottom: 4px;
+  padding-top: 4px;
+  background-color: ${({ theme }) => theme.card.background};
+  border: 2px solid ${({ theme }) => theme.colors.cardBorder};
+  border-radius: 16px;
+  gap: 8px;
 `;
 
 /**
@@ -26,7 +28,7 @@ const NetworkButton = styled(Button).attrs({ width: "100%", variant: "text", py:
  *
  * @returns sorted network config
  */
- const getPreferredConfig = (networkConfig: NetworkConfig[]) => {
+const getPreferredConfig = (networkConfig: NetworkConfig[]) => {
   const preferredNetworkName = localStorage.getItem(networkLocalStorageKey);
   const sortedConfig = networkConfig.sort((a: NetworkConfig, b: NetworkConfig) => a.priority - b.priority);
 
@@ -56,7 +58,7 @@ const NetworkMenu: React.FC = () => {
       }}
       variant="tertiary"
     >
-      <Icon width="20px" />
+      <Icon width="20px" height="20px" />
       <Text fontSize="12px">{name}</Text>
     </NetworkButton>
   )

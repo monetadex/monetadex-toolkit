@@ -12,8 +12,8 @@ const Icon: React.FC<SvgProps> = (props) => {
       fillRule="evenodd"
       clipRule="evenodd"
       viewBox="0 0 784.37 1277.39"
-      height="40"
-      width="40"
+      height="30"
+      width="30"
       {...props}
     >
       <g fillRule="nonzero">
