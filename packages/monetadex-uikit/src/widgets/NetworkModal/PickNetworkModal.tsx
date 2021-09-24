@@ -7,7 +7,7 @@ import Text from "../../components/Text/Text";
 import Heading from "../../components/Heading/Heading";
 import { Button } from "../../components/Button";
 import { ModalBody, ModalCloseButton, ModalContainer, ModalHeader, ModalTitle } from "../Modal";
-import config, { networkLocalStorageKey } from "./config";
+import config, { networkNameLocalStorageKey } from "./config";
 import { NetworkConfig } from "./types";
 import List from "../../components/Box/List";
 import NetworkCard from "./NetworkCard";
@@ -28,7 +28,7 @@ const NetworkWrapper = styled(Box)`
  * @returns sorted network config
  */
 const getPreferredConfig = (networkConfig: NetworkConfig[]) => {
-  const preferredNetworkName = localStorage.getItem(networkLocalStorageKey);
+  const preferredNetworkName = localStorage.getItem(networkNameLocalStorageKey);
   const sortedConfig = networkConfig.sort((a: NetworkConfig, b: NetworkConfig) => a.priority - b.priority);
 
   if (!preferredNetworkName) {
@@ -47,11 +47,9 @@ const getPreferredConfig = (networkConfig: NetworkConfig[]) => {
   ];
 };
 
-const PickNetworkModal: React.FC<Props> = ({ onDismiss = () => null, displayCount = 3 }) => {
-  const [showMore, setShowMore] = useState(false);
+const PickNetworkModal: React.FC<Props> = ({ onDismiss = () => null }) => {
   const theme = useTheme();
   const sortedConfig = getPreferredConfig(config);
-  const displayListConfig = showMore ? sortedConfig : sortedConfig.slice(0, displayCount);
 
   return (
     <ModalContainer minWidth="320px">
@@ -64,7 +62,7 @@ const PickNetworkModal: React.FC<Props> = ({ onDismiss = () => null, displayCoun
       <ModalBody width={["320px", null, "340px"]}>
         <NetworkWrapper py="24px" maxHeight="453px" overflowY="auto">
           <List gridTemplateColumns="1fr 1fr">
-            {displayListConfig.map((network) => (
+            {sortedConfig.map((network) => (
               <Box key={network.name}>
                 <NetworkCard networkConfig={network} onDismiss={onDismiss} />
               </Box>
@@ -77,7 +75,7 @@ const PickNetworkModal: React.FC<Props> = ({ onDismiss = () => null, displayCoun
           </Text>
           <Button
             as="a"
-            href="https://docs.pancakeswap.finance/get-started/connection-guide"
+            href="https://monetadex.gitbook.io/monetadex/get-started/connection-guide"
             variant="subtle"
             width="100%"
             {...getExternalLinkProps()}

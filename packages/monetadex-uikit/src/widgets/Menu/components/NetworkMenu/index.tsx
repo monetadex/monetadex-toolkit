@@ -1,10 +1,9 @@
 import React from "react";
 import styled from 'styled-components';
 import Button from "../../../../components/Button/Button";
-import { Position } from "../../../../components/Dropdown/types";
 import Text from "../../../../components/Text/Text";
-import { networkLocalStorageKey, useNetworkModal } from '../../../NetworkModal';
-import config from "../../../NetworkModal/config";
+import { networkNameLocalStorageKey, useNetworkModal } from '../../../NetworkModal';
+import config, { networkLocalStorageKey } from "../../../NetworkModal/config";
 import { NetworkConfig } from "../../../NetworkModal/types";
 
 const NetworkButton = styled(Button).attrs({ width: "100%", variant: "text", scale: "sm", mr: "8px" })`
@@ -29,7 +28,7 @@ const NetworkButton = styled(Button).attrs({ width: "100%", variant: "text", sca
  * @returns sorted network config
  */
 const getPreferredConfig = (networkConfig: NetworkConfig[]) => {
-  const preferredNetworkName = localStorage.getItem(networkLocalStorageKey);
+  const preferredNetworkName = localStorage.getItem(networkNameLocalStorageKey);
   const sortedConfig = networkConfig.sort((a: NetworkConfig, b: NetworkConfig) => a.priority - b.priority);
 
   if (!preferredNetworkName) {
@@ -46,14 +45,17 @@ const getPreferredConfig = (networkConfig: NetworkConfig[]) => {
 };
 
 const NetworkMenu: React.FC = () => {
-  const { name, icon: Icon } = getPreferredConfig(config);
+  const networkConfig = getPreferredConfig(config);
+
+  const { name, icon: Icon } = networkConfig;
 
   const { onPresentPickNetworkModal } = useNetworkModal()
 
   return (
     <NetworkButton
       onClick={() => {
-        localStorage.setItem(networkLocalStorageKey, name);
+        localStorage.setItem(networkLocalStorageKey, JSON.stringify(networkConfig));
+        localStorage.setItem(networkNameLocalStorageKey, name);
         onPresentPickNetworkModal();
       }}
       variant="tertiary"

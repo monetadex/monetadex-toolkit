@@ -32,4 +32,5 @@ const networks: NetworkConfig[] = [
 ];
 
 export default networks;
+export const networkNameLocalStorageKey = "networkName";
 export const networkLocalStorageKey = "network";

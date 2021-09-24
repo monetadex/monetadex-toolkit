@@ -4,7 +4,7 @@ import Button from "../../components/Button/Button";
 import Text from "../../components/Text/Text";
 import MoreHorizontal from "../../components/Svg/Icons/MoreHorizontal";
 import { ButtonProps } from "../../components/Button";
-import { networkLocalStorageKey } from "./config";
+import { networkLocalStorageKey, networkNameLocalStorageKey } from "./config";
 import { NetworkConfig } from "./types";
 
 interface Props {
@@ -32,14 +32,15 @@ export const MoreNetworkCard: React.FC<ButtonProps> = (props) => {
   );
 };
 
-const WalletCard: React.FC<Props> = ({ networkConfig, onDismiss }) => {
+const NetworkCard: React.FC<Props> = ({ networkConfig, onDismiss }) => {
   const { name, icon: Icon } = networkConfig;
 
   return (
     <NetworkButton
       variant="tertiary"
       onClick={() => {
-        localStorage.setItem(networkLocalStorageKey, networkConfig.name);
+        localStorage.setItem(networkLocalStorageKey, JSON.stringify(networkConfig));
+        localStorage.setItem(networkNameLocalStorageKey, networkConfig.name);
         onDismiss();
       }}
       id={`network-connect-${name.toLocaleLowerCase()}`}
@@ -50,4 +51,4 @@ const WalletCard: React.FC<Props> = ({ networkConfig, onDismiss }) => {
   );
 };
 
-export default WalletCard;
+export default NetworkCard;
