@@ -5,6 +5,7 @@ import Text from "../../../../components/Text/Text";
 import { networkNameLocalStorageKey, useNetworkModal } from '../../../NetworkModal';
 import config, { networkLocalStorageKey } from "../../../NetworkModal/config";
 import { NetworkConfig } from "../../../NetworkModal/types";
+import { NetworkMenuProps } from "./types";
 
 const NetworkButton = styled(Button).attrs({ width: "100%", variant: "text", scale: "sm", mr: "8px" })`
   align-items: center;
@@ -44,18 +45,18 @@ const getPreferredConfig = (networkConfig: NetworkConfig[]) => {
   return preferredNetwork;
 };
 
-const NetworkMenu: React.FC = () => {
+const NetworkMenu: React.FC<NetworkMenuProps> = ({
+  pickNetwork
+}) => {
   const networkConfig = getPreferredConfig(config);
 
   const { name, icon: Icon } = networkConfig;
 
-  const { onPresentPickNetworkModal } = useNetworkModal()
+  const { onPresentPickNetworkModal } = useNetworkModal(pickNetwork)
 
   return (
     <NetworkButton
       onClick={() => {
-        localStorage.setItem(networkLocalStorageKey, JSON.stringify(networkConfig));
-        localStorage.setItem(networkNameLocalStorageKey, name);
         onPresentPickNetworkModal();
       }}
       variant="tertiary"

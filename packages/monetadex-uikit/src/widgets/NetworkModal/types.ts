@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { FlexProps } from "styled-system";
 import { SvgProps } from "../../components/Svg/types";
 
 export enum NetworkNames {
@@ -12,6 +13,12 @@ export interface NetworkConfig {
   icon: FC<SvgProps>;
   priority: number;
   chainId: string;
-  rpcUrl: string;
+  rpcUrl: string[];
   blockExplorer: string;
+}
+
+export interface NetworkCardProps extends FlexProps {
+  networkConfig: NetworkConfig;
+  pickNetwork: (networkConfig: NetworkConfig) => void;
+  onDismiss: () => void;
 }

@@ -13,6 +13,7 @@ import List from "../../components/Box/List";
 import NetworkCard from "./NetworkCard";
 
 interface Props {
+  pickNetwork: (networkConfig: NetworkConfig) => void;
   onDismiss?: () => void;
   displayCount?: number;
 }
@@ -47,7 +48,7 @@ const getPreferredConfig = (networkConfig: NetworkConfig[]) => {
   ];
 };
 
-const PickNetworkModal: React.FC<Props> = ({ onDismiss = () => null }) => {
+const PickNetworkModal: React.FC<Props> = ({ pickNetwork = (networkConfig: NetworkConfig) => null, onDismiss = () => null }) => {
   const theme = useTheme();
   const sortedConfig = getPreferredConfig(config);
 
@@ -64,7 +65,7 @@ const PickNetworkModal: React.FC<Props> = ({ onDismiss = () => null }) => {
           <List gridTemplateColumns="1fr 1fr">
             {sortedConfig.map((network) => (
               <Box key={network.name}>
-                <NetworkCard networkConfig={network} onDismiss={onDismiss} />
+                <NetworkCard networkConfig={network} onDismiss={onDismiss} pickNetwork={pickNetwork} />
               </Box>
             ))}
           </List>

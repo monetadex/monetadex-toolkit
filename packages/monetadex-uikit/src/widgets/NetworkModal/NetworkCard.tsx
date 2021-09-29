@@ -5,7 +5,7 @@ import Text from "../../components/Text/Text";
 import MoreHorizontal from "../../components/Svg/Icons/MoreHorizontal";
 import { ButtonProps } from "../../components/Button";
 import { networkLocalStorageKey, networkNameLocalStorageKey } from "./config";
-import { NetworkConfig } from "./types";
+import { NetworkCardProps, NetworkConfig } from "./types";
 
 interface Props {
   networkConfig: NetworkConfig;
@@ -32,13 +32,14 @@ export const MoreNetworkCard: React.FC<ButtonProps> = (props) => {
   );
 };
 
-const NetworkCard: React.FC<Props> = ({ networkConfig, onDismiss }) => {
+const NetworkCard: React.FC<NetworkCardProps> = ({ networkConfig, pickNetwork, onDismiss }) => {
   const { name, icon: Icon } = networkConfig;
 
   return (
     <NetworkButton
       variant="tertiary"
       onClick={() => {
+        pickNetwork(networkConfig);
         localStorage.setItem(networkLocalStorageKey, JSON.stringify(networkConfig));
         localStorage.setItem(networkNameLocalStorageKey, networkConfig.name);
         onDismiss();

@@ -6,9 +6,11 @@ import MoreHorizontal from "../../components/Svg/Icons/MoreHorizontal";
 import { ButtonProps } from "../../components/Button";
 import { connectorLocalStorageKey, walletLocalStorageKey } from "./config";
 import { Login, Config, ConnectorNames } from "./types";
+import { NetworkConfig } from "../NetworkModal";
 
 interface Props {
   walletConfig: Config;
+  networkConfig: NetworkConfig;
   login: Login;
   onDismiss: () => void;
 }
@@ -32,7 +34,7 @@ export const MoreWalletCard: React.FC<ButtonProps> = (props) => {
   );
 };
 
-const WalletCard: React.FC<Props> = ({ login, walletConfig, onDismiss }) => {
+const WalletCard: React.FC<Props> = ({ login, walletConfig, networkConfig, onDismiss }) => {
   const { title, icon: Icon } = walletConfig;
 
   return (
@@ -43,9 +45,9 @@ const WalletCard: React.FC<Props> = ({ login, walletConfig, onDismiss }) => {
 
         // Since iOS does not support Trust Wallet we fall back to WalletConnect
         if (walletConfig.title === "Trust Wallet" && isIOS) {
-          login(ConnectorNames.WalletConnect);
+          login(ConnectorNames.WalletConnect, networkConfig);
         } else {
-          login(walletConfig.connectorId);
+          login(walletConfig.connectorId, networkConfig);
         }
 
         localStorage.setItem(walletLocalStorageKey, walletConfig.title);

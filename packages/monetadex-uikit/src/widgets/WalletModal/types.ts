@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { SvgProps } from "../../components/Svg/types";
+import { NetworkConfig } from "../NetworkModal";
 
 export enum ConnectorNames {
   Injected = "injected",
@@ -9,7 +10,7 @@ export enum ConnectorNames {
   Trezor = "trezor",
 }
 
-export type Login = (connectorId: ConnectorNames) => void;
+export type Login = (connectorId: ConnectorNames, networkConfig: NetworkConfig) => void;
 
 export interface Config {
   title: string;

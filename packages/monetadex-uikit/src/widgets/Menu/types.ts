@@ -49,7 +49,6 @@ export interface PanelProps {
 }
 
 export interface NavProps extends PanelProps {
-  networkMenu?: ReactElement;
   userMenu?: ReactElement;
   globalMenu?: ReactElement;
 }

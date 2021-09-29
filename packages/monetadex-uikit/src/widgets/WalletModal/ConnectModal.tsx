@@ -11,9 +11,11 @@ import { ModalBody, ModalCloseButton, ModalContainer, ModalHeader, ModalTitle } 
 import WalletCard, { MoreWalletCard } from "./WalletCard";
 import config, { walletLocalStorageKey } from "./config";
 import { Config, Login } from "./types";
+import { NetworkConfig } from "../NetworkModal";
 
 interface Props {
   login: Login;
+  networkConfig: NetworkConfig;
   onDismiss?: () => void;
   displayCount?: number;
 }
@@ -48,7 +50,7 @@ const getPreferredConfig = (walletConfig: Config[]) => {
   ];
 };
 
-const ConnectModal: React.FC<Props> = ({ login, onDismiss = () => null, displayCount = 3 }) => {
+const ConnectModal: React.FC<Props> = ({ login, networkConfig, onDismiss = () => null, displayCount = 3 }) => {
   const [showMore, setShowMore] = useState(false);
   const theme = useTheme();
   const sortedConfig = getPreferredConfig(config);
@@ -67,7 +69,7 @@ const ConnectModal: React.FC<Props> = ({ login, onDismiss = () => null, displayC
           <Grid gridTemplateColumns="1fr 1fr">
             {displayListConfig.map((wallet) => (
               <Box key={wallet.title}>
-                <WalletCard walletConfig={wallet} login={login} onDismiss={onDismiss} />
+                <WalletCard walletConfig={wallet} networkConfig={networkConfig} login={login} onDismiss={onDismiss} />
               </Box>
             ))}
             {!showMore && <MoreWalletCard onClick={() => setShowMore(true)} />}
