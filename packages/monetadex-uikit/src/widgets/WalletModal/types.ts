@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { SvgProps } from "../../components/Svg/types";
-import { NetworkConfig } from "../NetworkModal";
+import { NetworkConfig } from "./NetworkModal/types";
 
 export enum ConnectorNames {
   Injected = "injected",

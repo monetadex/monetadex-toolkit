@@ -3,7 +3,6 @@ export { status as menuStatus, links as menuConfig } from "./config";
 export type { NavProps, Language, MenuEntry } from "./types";
 
 export { default as UserMenu } from "./components/UserMenu";
-export { default as NetworkMenu } from "./components/NetworkMenu";
 export * from "./components/UserMenu/styles";
 export type {
   UserMenuProps,

@@ -1,6 +1,6 @@
-import BinanceSmartChain from "../../components/Svg/Icons/BinanceSmartChain";
-import Ethereum from "../../components/Svg/Icons/Ethereum";
-import Polygon from "../../components/Svg/Icons/Polygon";
+import BinanceSmartChain from "../../../components/Svg/Icons/BinanceSmartChain";
+import Ethereum from "../../../components/Svg/Icons/Ethereum";
+import Polygon from "../../../components/Svg/Icons/Polygon";
 
 import { NetworkConfig, NetworkNames } from "./types";
 

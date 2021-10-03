@@ -6,7 +6,7 @@ import MoreHorizontal from "../../components/Svg/Icons/MoreHorizontal";
 import { ButtonProps } from "../../components/Button";
 import { connectorLocalStorageKey, walletLocalStorageKey } from "./config";
 import { Login, Config, ConnectorNames } from "./types";
-import { NetworkConfig } from "../NetworkModal";
+import { NetworkConfig } from "./NetworkModal/types";
 
 interface Props {
   walletConfig: Config;
