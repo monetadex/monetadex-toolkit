@@ -11,7 +11,7 @@ export interface NetworkConfig {
   name: NetworkNames;
   icon: FC<SvgProps>;
   priority: number;
-  chainId: string;
+  chainId: number;
   rpcUrl: string[];
   blockExplorer: string;
 }
